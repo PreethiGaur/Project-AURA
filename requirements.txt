@@ -1,0 +1,13 @@
+Flask
+Werkzeug
+opencv-python
+Pillow
+matplotlib
+torch
+transformers==4.49.0
+sentencepiece
+einops
+timm
+pyttsx3
+scipy
+indic-nlp-library

@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Project AURA - A multimodal image-to-text-to-audio assistive application for visually impaired users."
+    >
+
+    <title>Project AURA</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+    <h1>PROJECT AURA</h1>
+
+    <p>
+        Multimodal Image-to-Text-to-Audio Describer
+    </p>
+
+    <span>
+        An assistive application for visually impaired users
+    </span>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="container">
+
+
+    <!-- =================================================
+         PROJECT WORKFLOW
+    ================================================== -->
+
+    <section class="card">
+
+        <h2>How Project AURA Works</h2>
+
+        <p class="section-description">
+            The system combines Digital Image Processing,
+            Artificial Intelligence, Natural Language Processing,
+            translation, and Text-to-Speech technologies.
+        </p>
+
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <strong>1</strong>
+                <span>Image Input</span>
+            </div>
+
+            <div class="workflow-arrow">
+                →
+            </div>
+
+            <div class="workflow-step">
+                <strong>2</strong>
+                <span>DIP Processing</span>
+            </div>
+
+            <div class="workflow-arrow">
+                →
+            </div>
+
+            <div class="workflow-step">
+                <strong>3</strong>
+                <span>AI Description</span>
+            </div>
+
+            <div class="workflow-arrow">
+                →
+            </div>
+
+            <div class="workflow-step">
+                <strong>4</strong>
+                <span>NLP & Translation</span>
+            </div>
+
+            <div class="workflow-arrow">
+                →
+            </div>
+
+            <div class="workflow-step">
+                <strong>5</strong>
+                <span>Audio Output</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         IMAGE UPLOAD
+    ================================================== -->
+
+    <section class="card upload-section">
+
+        <h2>Upload an Image</h2>
+
+        <p class="section-description">
+            Upload an image to generate a detailed visual
+            description and multilingual audio output.
+        </p>
+
+
+        <!--
+            IMPORTANT:
+            Keep the label and input association unchanged.
+            The "for" value must match the input "id".
+        -->
+
+        <label
+            for="imageInput"
+            class="upload-button"
+        >
+            📷 Choose Image
+        </label>
+
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+        >
+
+
+        <div class="preview-area">
+
+            <p id="previewText">
+                Your selected image will appear here
+            </p>
+
+
+            <img
+                id="imagePreview"
+                alt="Preview of the selected image"
+            >
+
+        </div>
+
+
+        <button
+            id="analyzeButton"
+            type="button"
+        >
+            Analyze Image
+        </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DIGITAL IMAGE PROCESSING
+    ================================================== -->
+
+    <section class="card">
+
+        <h2>Digital Image Processing</h2>
+
+        <p class="section-description">
+            OpenCV is used for image enhancement,
+            grayscale conversion, and edge detection
+            as part of the image-processing stage.
+        </p>
+
+
+        <div class="image-grid">
+
+
+            <!-- ORIGINAL -->
+
+            <div class="result-box">
+
+                <h3>Original Image</h3>
+
+                <img
+                    id="originalImage"
+                    alt="Original uploaded image"
+                >
+
+            </div>
+
+
+
+            <!-- ENHANCED -->
+
+            <div class="result-box">
+
+                <h3>Enhanced Image</h3>
+
+                <img
+                    id="enhancedImage"
+                    alt="Contrast-enhanced image"
+                >
+
+            </div>
+
+
+
+            <!-- GRAYSCALE -->
+
+            <div class="result-box">
+
+                <h3>Grayscale Image</h3>
+
+                <img
+                    id="grayImage"
+                    alt="Grayscale version of the image"
+                >
+
+            </div>
+
+
+
+            <!-- EDGE DETECTION -->
+
+            <div class="result-box">
+
+                <h3>Edge Detection</h3>
+
+                <img
+                    id="edgesImage"
+                    alt="Detected edges in the image"
+                >
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI GENERATED DESCRIPTION
+    ================================================== -->
+
+    <section class="card">
+
+        <h2>AI Generated Description</h2>
+
+        <p class="section-description">
+            Florence-2 analyzes the visual content and
+            generates a detailed natural-language description
+            of the uploaded image.
+        </p>
+
+
+
+        <!-- ENGLISH -->
+
+        <div class="caption-box">
+
+            <h3>🇬🇧 English Description</h3>
+
+            <p id="caption">
+                Your English image description will appear here.
+            </p>
+
+        </div>
+
+
+
+        <br>
+
+
+
+        <!-- HINDI -->
+
+        <div class="caption-box">
+
+            <h3>🇮🇳 Hindi Description</h3>
+
+            <p id="hindiCaption">
+                Hindi description will appear here.
+            </p>
+
+        </div>
+
+
+
+        <br>
+
+
+
+        <!-- KANNADA -->
+
+        <div class="caption-box">
+
+            <h3>🇮🇳 Kannada Description</h3>
+
+            <p id="kannadaCaption">
+                Kannada description will appear here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NLP PROCESSING
+    ================================================== -->
+
+    <section class="card">
+
+        <h2>Natural Language Processing</h2>
+
+        <p class="section-description">
+            The generated descriptions are cleaned and
+            analyzed to demonstrate basic NLP processing.
+            Select a language to view the processed text
+            and word count.
+        </p>
+
+
+        <div class="language-selection">
+
+            <h3>Select Language</h3>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="nlpLanguage"
+                    value="english"
+                    checked
+                >
+
+                🇬🇧 English
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="nlpLanguage"
+                    value="hindi"
+                >
+
+                🇮🇳 Hindi
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="nlpLanguage"
+                    value="kannada"
+                >
+
+                🇮🇳 Kannada
+
+            </label>
+
+        </div>
+
+
+
+        <div class="nlp-grid">
+
+
+            <div class="info-box">
+
+                <h3>Processed Caption</h3>
+
+                <p id="cleanedCaption">
+                    -
+                </p>
+
+            </div>
+
+
+
+            <div class="info-box">
+
+                <h3>Word Count</h3>
+
+                <p id="wordCount">
+                    -
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AUDIO DESCRIPTION
+    ================================================== -->
+
+    <section class="card audio-section">
+
+        <h2>Audio Description</h2>
+
+        <p class="section-description">
+            Select a language and listen to the generated
+            description using Text-to-Speech technology.
+        </p>
+
+
+        <div class="language-selection">
+
+            <h3>Select Language</h3>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="language"
+                    value="english"
+                    checked
+                >
+
+                🇬🇧 English
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="language"
+                    value="hindi"
+                >
+
+                🇮🇳 Hindi
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="language"
+                    value="kannada"
+                >
+
+                🇮🇳 Kannada
+
+            </label>
+
+        </div>
+
+
+
+        <button
+            id="audioButton"
+            type="button"
+        >
+
+            🔊 Play Description
+
+        </button>
+
+
+
+        <audio
+            id="audioPlayer"
+            controls
+            style="display: none;"
+        >
+
+            Your browser does not support audio playback.
+
+        </audio>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <p>
+        Project AURA
+        |
+        Digital Image Processing + AI + NLP + Translation + TTS
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="/static/js/script.js"></script>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,32 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated output
+outputs/*
+uploads/*
+
+# Keep the folders in Git
+!outputs/.gitkeep
+!uploads/.gitkeep
+
+# IDE files
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.*
+
+# Logs
+*.log
